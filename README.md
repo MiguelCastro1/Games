@@ -1,2 +1,2 @@
 # Games
- Mini-Games em javascript com a biblioteca p5.js
+ jogos feitos em javascript com biblioteca p5.js
