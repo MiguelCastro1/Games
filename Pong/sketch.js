@@ -1,4 +1,3 @@
-
 let jogador1,jogador2,bola;
 let btn_pausa,btn_restart;
 
@@ -6,8 +5,7 @@ function setup() {
   let c = createCanvas(400, 400);
   c.style("display","block");
 
-  //instanciacao
-  bola = new Bola(width/2,height/2-170,1,1,1,20);
+  bola = new Bola(width/2,height/2-180,1,1,2,20);
   jogador1 = new Jogador(20,20,2,5,40);
   jogador2 = new Jogador(width-5-20,height/2,3,5,40);
 
