@@ -22,7 +22,7 @@ class Bola{
     colisao_bola(j1,j2){
       //colisao jogador
       if(!this.out && this.x <= this.espaco && this.direcaoX == -1){
-        //colisao com jogador
+        //colisao com jogador dentro
         if(this.y >= jogador1.y && this.y <= jogador1.y + 40){
           this.direcaoX *= -1;
           return ;
@@ -41,16 +41,30 @@ class Bola{
           return ;
         }
 
+				//colisao nos cantos maximo
+				console.log(this.x + " " + this.y);
+				if(this.x <= this.espaco-7 && this.y >= jogador1.y - 12 && this.y <= jogador1.y + 40+12){
+					this.direcaoX *= -1;
+					if(this.direcaoY == 1){
+						if(this.y <= jogador1.y + 20)
+							this.direcaoY *= -1;
+					}else{
+						if(this.y >= jogador1.y + 20)
+							this.direcaoY *= -1;
+					}
+					return ;
+				}
+        
         //bola indo para fora
-        if(this.x <= this.espaco - 10 || this.x >= width- this.espaco - 10){ 
-          this.out = true;
-        }
+        if(this.x <= this.espaco - 7 || this.x >= width - this.espaco + 7) 
+        	this.out = true;
+    	
       }
       
       //colisao full com jogador
       if(!this.out && this.x >= width-this.espaco && this.direcaoX == 1){
         
-        //colisao com jogador
+        //colisao com jogador dentro
         if(this.y >= jogador2.y && this.y <= jogador2.y + 40){
           this.direcaoX *= -1;
           return ;
@@ -67,11 +81,25 @@ class Bola{
 							this.direcaoY *= -1;
 					}
           return ;
-        }
-
+				}
+				
+				//colisao nos cantos maximo
+				console.log(this.x + " " + this.y);
+				if(this.x >= width-this.espaco + 7 && this.y >= jogador2.y-12 && this.y <= jogador2.y + 40+12){
+					this.direcaoX *= -1;
+					if(this.direcaoY == 1){
+						if(this.y <= jogador2.y + 20)
+							this.direcaoY *= -1;
+					}else{
+						if(this.y >= jogador2.y + 20)
+							this.direcaoY *= -1;
+					}
+					return ;
+				}
+        
         //bola indo para fora
-        if(this.x <= this.espaco - 10 || this.x >= width- this.espaco - 10) 
-        	this.out = true;
+        if(this.x <= this.espaco - 7 || this.x >= width - this.espaco + 7) 
+					this.out = true;	
     	}
   
     	//bola out

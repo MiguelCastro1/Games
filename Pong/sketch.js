@@ -5,8 +5,8 @@ function setup() {
   let c = createCanvas(400, 400);
   c.style("display","block");
 
-  bola = new Bola(width/2,height/2-180,1,1,2,20);
-  jogador1 = new Jogador(20,20,2,5,40);
+  bola = new Bola(width/2,height/2-185,1,1,3,20);
+  jogador1 = new Jogador(20,height/2,2,5,40);
   jogador2 = new Jogador(width-5-20,height/2,3,5,40);
 
   //butons
@@ -24,8 +24,9 @@ function draw() {
   background(250);
   jogador1.desenha();
   jogador2.desenha();
-  
+
   textSize(32);
+  fill(0,0,250);
   text(String(jogador1.pontos),width/2 - 100,50);
   text(String(jogador2.pontos),width/2 + 75,50);
   
@@ -37,7 +38,7 @@ function draw() {
 
   bola.colisao_bola(jogador1,jogador2);
 
-  //frameRate(10);
+  //frameRate(5);
 }
 
 function movimento_tabuas(){
@@ -60,9 +61,9 @@ function restart(){
     btn_pausa.style("visibility","visible");
     btn_restart.html("Restart");
   }else{
-    bola = new Bola(width/2,height/2-170,1,1,0,20);
-    jogador1 = new Jogador(0,0,3,5,40);
-    jogador2 = new Jogador(width-10,height/2,3,5,40);
+    bola = new Bola(width/2,height/2-180,1,-1,2,20);
+    jogador1 = new Jogador(20,height/2-60,2,5,40);
+    jogador2 = new Jogador(width-5-20,height/2,3,5,40);
     btn_pausa.html("Continuar");
     bola.movimento = false;
   }
